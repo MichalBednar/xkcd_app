@@ -2,6 +2,7 @@
 import os
 from dotenv import load_dotenv
 import tweepy
+import time
 from xkcd_app import GetXkcdData
 
 load_dotenv()
@@ -14,7 +15,9 @@ auth.set_access_token(os.getenv("access_token"),
 
 api = tweepy.API(auth)
 
-a = GetXkcdData()
 
-# Upload actual picture with text on Twitter
-api.update_with_media(a.download_xkcd_comic(), a.post_title())
+while True:
+    a = GetXkcdData()
+    # Upload actual picture with text on Twitter
+    api.update_with_media(a.download_xkcd_comic(), a.post_title())
+    time.sleep(1800)

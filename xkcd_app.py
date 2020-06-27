@@ -21,7 +21,7 @@ class GetXkcdData:
     img_title = img_div.find('img')['title']
 
     def post_title(self):
-        return(self.img_title)
+        return(self.img_title + " #xkcd #botlife #comic")
 
     def download_xkcd_comic(self):
         d = urllib.request.urlretrieve(self.img_src, self.img_save_name)
@@ -29,5 +29,6 @@ class GetXkcdData:
 
 
 a = GetXkcdData()
+
 
 print(a.post_title())

@@ -2,10 +2,14 @@
 from textblob import TextBlob
 
 sentence = TextBlob(
-    "I WONDERED why he kept asking whether we thought the impact speed was too low.")
+    "If the dysentery graph looks historically inaccurate it's because I got all my data from Oregon Trail.")
 
 sentence = sentence.noun_phrases
+# dysentery graph
 
-for s in sentence:
-    j = s.replace(" ", "")
-    print("#" + j + " ", end="")
+for item in sentence:
+    new_item = "#" + item.replace(" ", "")
+    new_item.join(item)
+    print(new_item + " ", end="")
+
+print(type(new_item))
