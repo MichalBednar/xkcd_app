@@ -1,5 +1,6 @@
 
 import requests
+import os
 import urllib.request
 from bs4 import BeautifulSoup
 
@@ -29,3 +30,6 @@ class GetXkcdData:
     def download_xkcd_comic(self):
         d = urllib.request.urlretrieve(self.img_src, self.img_save_name)
         return d[0]
+
+    def delete_xkcd_comic(self):
+        os.remove(self.img_save_name)
