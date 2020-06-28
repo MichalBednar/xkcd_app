@@ -30,6 +30,8 @@ class GetXkcdData:
     def download_xkcd_comic(self):
         d = urllib.request.urlretrieve(self.img_src, self.img_save_name)
         return d[0]
+        print("#posting#")
 
     def delete_xkcd_comic(self):
         os.remove(self.img_save_name)
+        print("deleting file")
