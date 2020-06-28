@@ -7,9 +7,16 @@ sentence = TextBlob(
 sentence = sentence.noun_phrases
 # dysentery graph
 
-for item in sentence:
-    new_item = "#" + item.replace(" ", "")
-    new_item.join(item)
-    print(new_item + " ", end="")
 
-print(type(new_item))
+def func():
+    if len(sentence) >= 1:
+        lst = []
+        for item in sentence:
+            new_item = "#" + item.replace(" ", "")
+            lst.append(new_item)
+
+    else:
+        print("hovno")
+
+
+print(func())

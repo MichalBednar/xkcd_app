@@ -19,5 +19,6 @@ api = tweepy.API(auth)
 while True:
     a = GetXkcdData()
     # Upload actual picture with text on Twitter
-    api.update_with_media(a.download_xkcd_comic(), a.post_title())
-    time.sleep(1800)
+    #api.update_with_media(a.download_xkcd_comic(), a.post_title())
+    print(a.post_title())
+    time.sleep(900)

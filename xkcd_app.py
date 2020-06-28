@@ -1,34 +1,31 @@
 
 import requests
 import urllib.request
-from textblob import TextBlob
 from bs4 import BeautifulSoup
 
 
 class GetXkcdData:
 
-    r = requests.get("https://c.xkcd.com/random/comic/")
-    soup = BeautifulSoup(r.text, "html.parser")
+    def __init__(self):
+        r = requests.get("https://c.xkcd.com/random/comic/")
+        soup = BeautifulSoup(r.text, "html.parser")
 
-    # Div That Contains Actual Comic Image
-    img_div = soup.find(id="comic")
+        # Div That Contains Actual Comic Image
+        img_div = soup.find(id="comic")
 
-    img_src = 'https://'
-    img_src += img_div.find('img')['src'][2:]
+        self.img_src = 'https://'
+        self.img_src += img_div.find('img')['src'][2:]
 
-    img_save_name = img_src.split("/")[-1]
+        self.img_save_name = self.img_src.split("/")[-1]
 
-    img_title = img_div.find('img')['title']
+        self.img_title = img_div.find('img')['title']
 
     def post_title(self):
+        # limiting character count
+        if len(self.img_title) >= 280:
+            return(self.img_title[:254] + "... #xkcd #botlife #comic")
         return(self.img_title + " #xkcd #botlife #comic")
 
     def download_xkcd_comic(self):
         d = urllib.request.urlretrieve(self.img_src, self.img_save_name)
         return d[0]
-
-
-a = GetXkcdData()
-
-
-print(a.post_title())
