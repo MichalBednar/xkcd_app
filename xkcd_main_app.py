@@ -23,4 +23,6 @@ while True:
     # Upload actual picture with text on Twitter
     api.update_with_media(a.download_xkcd_comic(), a.post_title())
     print("going to sleep")
+    time.sleep(20)
+    a.delete_xkcd_comic()
     time.sleep(900)

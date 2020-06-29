@@ -24,7 +24,7 @@ class GetXkcdData:
     def post_title(self):
         # limiting character count
         if len(self.img_title) >= 280:
-            return(self.img_title[:254] + "... #xkcd #botlife #comic")
+            return(self.img_title[:200] + "... #xkcd #botlife #comic")
         return(self.img_title + " #xkcd #botlife #comic")
 
     def download_xkcd_comic(self):
